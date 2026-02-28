@@ -18,9 +18,9 @@ export class SelectedWorkComponent {
   activeProjectUrl: string | null = null;
 
   projects = [
-    { videoUrl: 'videos/pj_five.mp4', poster: 'poster/pj_five_poster.png' },
+    { videoUrl: 'videos/pj_three.mp4', poster: 'poster/pj_five_poster.png' },
     { videoUrl: 'videos/pj_four.mp4', poster: 'poster/pj_four_poster.png' },
-    { videoUrl: 'videos/pj_three.mp4', poster: 'poster/pj_three_poster.png' },
+    { videoUrl: 'videos/pj_five.mp4', poster: 'poster/pj_three_poster.png' },
     { videoUrl: 'videos/pj_two.mp4', poster: 'poster/pj_two_poster.png' },
   ];
 
