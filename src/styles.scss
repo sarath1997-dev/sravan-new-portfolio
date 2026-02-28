@@ -1,1 +1,184 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.body {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  --aurora-color-1: #58a6ff;
+  --aurora-color-2: #141178;
+  --aurora-color-3: #de7b6c;
+}
+
+.aurora-background {
+  position: relative;
+  overflow: hidden;
+}
+
+.aurora-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(
+      circle at 10% 20%,
+      var(--aurora-color-1) 0%,
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      var(--aurora-color-2) 0%,
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at 50% 90%,
+      var(--aurora-color-3) 0%,
+      transparent 20%
+    );
+  filter: blur(85px);
+  opacity: 0.5;
+  animation: aurora-bg 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes aurora-bg {
+  0% {
+    transform: rotate(0deg) scale(1.2);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.5);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1.2);
+  }
+}
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Dark Mode Scrollbar */
+.dark ::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--aurora-color-2),
+    var(--aurora-color-1)
+  );
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #d48eff, #73b9ff);
+}
+
+/* Light Mode Scrollbar */
+.light ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #c084fc, #93c5fd);
+  border-radius: 4px;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #a855f7, #60a5fa);
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-3d {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.is-visible .reveal-3d {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.hover-3d-tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.hover-3d-tilt:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) scale(1.05);
+}
+
+@keyframes float-up-down {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float-up-down {
+  animation: float-up-down 4s ease-in-out infinite;
+}
+
+@keyframes fall {
+  from {
+    translate: 0 -10vh;
+    rotate: 0deg;
+  }
+
+  to {
+    translate: 0 110vh;
+    rotate: 360deg;
+  }
+}
+
+.falling-shape {
+  position: absolute;
+  top: 0;
+  border-radius: 50%;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0.8;
+  filter: blur(5px);
+  scale: 1;
+  transition:
+    scale 0.3s ease-in-out,
+    filter 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
+}
+
+.falling-shape:hover {
+  scale: 1.2;
+  opacity: 1;
+  filter: blur(3px) brightness(1.5);
+  animation-play-state: paused;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+
+  &::-webkit-scrollbar {
+    display: none !important;
+  }
+}

@@ -1,0 +1,194 @@
+<section
+  id="services"
+  class="py-20 md:py-32 dark:bg-dark-bg/50 border-y border-light-border dark:border-glass-border reveal-on-scroll transition-colors duration-300"
+>
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">Services</h2>
+      <p class="max-w-2xl mx-auto text-medium-text dark:text-dim-text">
+        From viral short-form clips to cinematic long-form narratives, I tailor
+        every project to its platform and audience.
+      </p>
+    </div>
+
+    <div
+      class="grid md:grid-cols-2 gap-8 md:gap-16 max-w-6xl mx-auto items-center"
+    >
+      <!-- Left Column: Service Selection -->
+      <div class="flex flex-col gap-8">
+        <div
+          class="p-8 rounded-2xl border cursor-pointer transition-all duration-300"
+          [class]="
+            activeService() === 'short'
+              ? 'bg-light-surface dark:bg-glass-surface shadow-lg border-accent/50'
+              : 'bg-transparent border-light-border dark:border-glass-border'
+          "
+          (mouseover)="setActiveService('short')"
+        >
+          <h3 class="text-2xl font-bold mb-3">Short-Form Master</h3>
+          <p class="text-medium-text dark:text-dim-text">
+            High-energy, engaging edits optimized for Instagram Reels, TikTok,
+            and YouTube Shorts to maximize reach and retention.
+          </p>
+        </div>
+        <div
+          class="p-8 rounded-2xl border cursor-pointer transition-all duration-300"
+          [class]="
+            activeService() === 'long'
+              ? 'bg-light-surface dark:bg-glass-surface shadow-lg border-accent/50'
+              : 'bg-transparent border-light-border dark:border-glass-border'
+          "
+          (mouseover)="setActiveService('long')"
+        >
+          <h3 class="text-2xl font-bold mb-3">Long-Form Storytelling</h3>
+          <p class="text-medium-text dark:text-dim-text">
+            Cinematic and narrative-driven editing for YouTube, LinkedIn, and
+            Facebook, focusing on powerful storytelling.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Column: Video Preview -->
+      <div class="relative h-96 md:h-[500px] flex items-center justify-center">
+        <!-- Short-Form Preview -->
+        @if (activeService() === "short") {
+          <div
+            class="w-56 h-96 bg-light-surface dark:bg-black/50 p-2 rounded-3xl border-4 border-light-border dark:border-gray-700 shadow-2xl animate-fade-in"
+          >
+            <div
+              class="relative w-full h-full rounded-2xl overflow-hidden group"
+              (mouseenter)="isHovering = true"
+              (mouseleave)="isHovering = false"
+            >
+              <!-- Video -->
+              <video
+                #videoPlayerShort
+                loop
+                muted
+                playsinline
+                preload="metadata"
+                poster="poster/short_video_poster.png"
+                class="w-full h-full object-cover"
+                [attr.data-id]="'videos/P1_one.mp4'"
+                (click)="toggleVideo('videos/P1_one.mp4', videoPlayerShort)"
+                (play)="isPlaying = true"
+                (pause)="isPlaying = false"
+              >
+                <source src="videos/P1_one.mp4" type="video/mp4" />
+              </video>
+
+              <!-- Glass Play/Pause Button -->
+              <button
+                *ngIf="!isPlaying || isHovering"
+                (click)="toggleVideo('videos/P1_one.mp4', videoPlayerShort)"
+                class="absolute inset-0 flex items-center justify-center transition-opacity duration-300"
+              >
+                <div
+                  class="w-16 h-16 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-lg border border-white/30 shadow-xl transition-all duration-200 hover:scale-110 active:scale-90"
+                >
+                  <!-- Play Icon -->
+                  <svg
+                    *ngIf="!isPlaying"
+                    class="w-8 h-8 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+
+                  <!-- Pause Icon -->
+                  <svg
+                    *ngIf="isPlaying"
+                    class="w-8 h-8 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        }
+
+        <!-- Long-Form Preview -->
+        @if (activeService() === "long") {
+          <div
+            class="w-full max-w-lg aspect-video bg-light-surface dark:bg-black/50 p-2 rounded-xl border-4 border-light-border dark:border-gray-700 shadow-2xl animate-fade-in"
+          >
+            <div
+              class="relative w-full h-full rounded-md overflow-hidden"
+              (mouseenter)="isHovering = true"
+              (mouseleave)="isHovering = false"
+            >
+              <!-- Video -->
+              <video
+                #videoPlayerLong
+                loop
+                muted
+                playsinline
+                preload="metadata"
+                poster="poster/long_video_poster.png"
+                class="w-full h-full object-cover"
+                (play)="isPlaying = true"
+                (pause)="isPlaying = false"
+                (ended)="isPlaying = false"
+                [attr.data-id]="'videos/PJ_one.mp4'"
+                (click)="toggleVideo('videos/PJ_one.mp4', videoPlayerLong)"
+              >
+                <source src="videos/PJ_one.mp4" type="video/mp4" />
+              </video>
+
+              <!-- Glass Play / Pause Button -->
+              <button
+                (click)="toggleVideo('videos/PJ_one.mp4', videoPlayerLong)"
+                class="absolute inset-0 flex items-center justify-center transition-opacity duration-300"
+                [class.opacity-0]="isPlaying && !isHovering"
+                [class.opacity-100]="!isPlaying || isHovering"
+              >
+                <div
+                  class="w-20 h-20 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-xl border border-white/30 shadow-2xl transition-all duration-200 hover:scale-110 active:scale-90"
+                >
+                  <!-- Play Icon -->
+                  <svg
+                    *ngIf="!isPlaying"
+                    class="w-10 h-10 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+
+                  <!-- Pause Icon -->
+                  <svg
+                    *ngIf="isPlaying"
+                    class="w-10 h-10 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  .animate-fade-in {
+    animation: fade-in 0.4s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  }
+</style>

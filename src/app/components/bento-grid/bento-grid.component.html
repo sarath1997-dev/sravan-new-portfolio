@@ -1,0 +1,21 @@
+<section id="toolkit" class="py-20 md:py-32 reveal-on-scroll">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-5xl font-bold mb-4">My Toolkit</h2>
+    <p class="max-w-2xl mx-auto text-medium-text dark:text-dim-text mb-20">
+      Leveraging industry-standard software to produce high-quality,
+      professional video content.
+    </p>
+    <div
+      class="flex justify-center items-center gap-4 flex-wrap max-w-4xl mx-auto"
+    >
+      @for (tool of software; track tool; let i = $index) {
+        <div
+          class="reveal-3d px-6 py-3 rounded-full border border-light-border dark:border-glass-border bg-light-surface/50 dark:bg-glass-surface/50 text-medium-text dark:text-light-text font-semibold cursor-pointer transition-all duration-300 ease-in-out hover:bg-accent/10 hover:text-accent hover:border-accent/50 dark:hover:bg-accent/10 dark:hover:text-accent dark:hover:border-accent/50 hover:scale-105 dark:hover:shadow-glow"
+          [style.transition-delay]="i * 50 + 'ms'"
+        >
+          {{ tool }}
+        </div>
+      }
+    </div>
+  </div>
+</section>

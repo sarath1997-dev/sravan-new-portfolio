@@ -1,0 +1,190 @@
+<div
+  class="fixed bottom-8 right-8 z-50 flex flex-col-reverse items-center gap-4"
+>
+  <!-- Action Buttons -->
+  <div
+    class="flex flex-col-reverse gap-4 items-center transition-all duration-300 ease-out"
+    [class.opacity-100]="isMenuOpen()"
+    [class.-translate-y-0]="isMenuOpen()"
+    [class.opacity-0]="!isMenuOpen()"
+    [class.translate-y-4]="!isMenuOpen()"
+    [class.pointer-events-auto]="isMenuOpen()"
+    [class.pointer-events-none]="!isMenuOpen()"
+  >
+    <a
+      href="{{ socials[2].url }}"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="Discord"
+      class="group w-12 h-12 bg-light-surface/80 dark:bg-glass-surface backdrop-blur-lg rounded-full flex items-center justify-center transition-all duration-300 ease-in-out hover:scale-110 focus:outline-none focus:ring-4 ring-light-border dark:ring-accent/50 shadow-lg"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6 text-accent"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M20.317 4.3698C18.699 3.5048 16.928 2.9248 15.068 2.6998C15.068 2.6998 15.068 2.6998 15.056 2.6998C14.512 2.6248 13.96 2.5868 13.409 2.5868C12.327 2.5868 11.254 2.6998 10.211 2.9128C10.203 2.9128 10.195 2.9248 10.187 2.9248C8.327 3.1498 6.556 3.7298 4.938 4.5948C4.938 4.5948 4.93 4.5948 4.922 4.5948C2.269 6.2618 1.033 9.4238 1.033 9.4238C1.033 9.4238 1.033 9.4238 1.033 9.4238C1.033 14.4088 3.728 18.5988 3.728 18.5988L3.736 18.6108C5.64 20.0128 7.749 20.9388 9.943 21.3858C9.943 21.3858 9.951 21.3858 9.951 21.3858C10.519 21.4988 11.087 21.5738 11.663 21.5978C11.663 21.5978 11.663 21.5978 11.671 21.5978C12.247 21.5978 12.815 21.5618 13.375 21.4498C13.375 21.4498 13.375 21.4498 13.383 21.4498C15.577 20.9998 17.686 20.0738 19.591 18.6718L19.607 18.6588C19.607 18.6588 22.302 14.4698 22.302 9.4848C22.302 9.4848 22.302 9.4768 22.302 9.4688C22.239 8.3088 21.631 6.6718 20.317 4.3698ZM8.02 15.6348C7.031 15.6348 6.222 14.8408 6.222 13.8668C6.222 12.8938 7.023 12.0998 8.02 12.0998C9.009 12.0998 9.818 12.8938 9.81 13.8668C9.81 14.8408 9.009 15.6348 8.02 15.6348ZM15.314 15.6348C14.325 15.6348 13.516 14.8408 13.516 13.8668C13.516 12.8938 14.317 12.0998 15.314 12.0998C16.303 12.0998 17.112 12.8938 17.104 13.8668C17.104 14.8408 16.303 15.6348 15.314 15.6348Z"
+        />
+      </svg>
+    </a>
+
+    <a
+      href="{{ socials[1].url }}"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="LinkedIn"
+      class="group w-12 h-12 bg-light-surface/80 dark:bg-glass-surface backdrop-blur-lg rounded-full flex items-center justify-center transition-all duration-300 ease-in-out hover:scale-110 focus:outline-none focus:ring-4 ring-light-border dark:ring-accent/50 shadow-lg"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="h-6 w-6 text-accent"
+      >
+        <path
+          d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+        ></path>
+        <rect x="2" y="9" width="4" height="12"></rect>
+        <circle cx="4" cy="4" r="2"></circle>
+      </svg>
+    </a>
+
+    <a
+      href="{{ socials[0].url }}"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="Instagram"
+      class="group w-12 h-12 bg-light-surface/80 dark:bg-glass-surface backdrop-blur-lg rounded-full flex items-center justify-center transition-all duration-300 ease-in-out hover:scale-110 focus:outline-none focus:ring-4 ring-light-border dark:ring-accent/50 shadow-lg"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="h-6 w-6 text-accent"
+      >
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+      </svg>
+    </a>
+
+    <button
+      (click)="scrollToContact()"
+      title="Let's Collaborate"
+      class="group w-12 h-12 bg-light-surface/80 dark:bg-glass-surface backdrop-blur-lg rounded-full flex items-center justify-center transition-all duration-300 ease-in-out hover:scale-110 focus:outline-none focus:ring-4 ring-light-border dark:ring-accent/50 shadow-lg"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6 text-accent"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+        />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Main Toggle Button -->
+  <button
+    (click)="toggleMenu()"
+    title="Contact Options"
+    class="group w-14 h-14 bg-accent rounded-full text-white flex items-center justify-center transition-all duration-300 ease-in-out hover:scale-110 focus:outline-none focus:ring-4 focus:ring-accent/50 animate-float-up-down shadow-glow z-10"
+  >
+    <span
+      class="absolute inset-0 bg-accent rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity"
+    ></span>
+    <div class="relative w-7 h-7">
+      @if (!isMenuOpen()) {
+        @switch (currentIcon()) {
+          @case ("message") {
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-full h-full"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+              />
+            </svg>
+          }
+          @case ("linkedin") {
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-full h-full"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+              />
+            </svg>
+          }
+          @case ("discord") {
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-full h-full"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M20.317 4.3698C18.699 3.5048 16.928 2.9248 15.068 2.6998C15.068 2.6998 15.068 2.6998 15.056 2.6998C14.512 2.6248 13.96 2.5868 13.409 2.5868C12.327 2.5868 11.254 2.6998 10.211 2.9128C10.203 2.9128 10.195 2.9248 10.187 2.9248C8.327 3.1498 6.556 3.7298 4.938 4.5948C4.938 4.5948 4.93 4.5948 4.922 4.5948C2.269 6.2618 1.033 9.4238 1.033 9.4238C1.033 9.4238 1.033 9.4238 1.033 9.4238C1.033 14.4088 3.728 18.5988 3.728 18.5988L3.736 18.6108C5.64 20.0128 7.749 20.9388 9.943 21.3858C9.943 21.3858 9.951 21.3858 9.951 21.3858C10.519 21.4988 11.087 21.5738 11.663 21.5978C11.663 21.5978 11.663 21.5978 11.671 21.5978C12.247 21.5978 12.815 21.5618 13.375 21.4498C13.375 21.4498 13.375 21.4498 13.383 21.4498C15.577 20.9998 17.686 20.0738 19.591 18.6718L19.607 18.6588C19.607 18.6588 22.302 14.4698 22.302 9.4848C22.302 9.4848 22.302 9.4768 22.302 9.4688C22.239 8.3088 21.631 6.6718 20.317 4.3698ZM8.02 15.6348C7.031 15.6348 6.222 14.8408 6.222 13.8668C6.222 12.8938 7.023 12.0998 8.02 12.0998C9.009 12.0998 9.818 12.8938 9.81 13.8668C9.81 14.8408 9.009 15.6348 8.02 15.6348ZM15.314 15.6348C14.325 15.6348 13.516 14.8408 13.516 13.8668C13.516 12.8938 14.317 12.0998 15.314 12.0998C16.303 12.0998 17.112 12.8938 17.104 13.8668C17.104 14.8408 16.303 15.6348 15.314 15.6348Z"
+              />
+            </svg>
+          }
+          @case ("instagram") {
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-full h-full"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"
+              />
+            </svg>
+          }
+        }
+      } @else {
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-full h-full transition-transform duration-300"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2.5"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      }
+    </div>
+  </button>
+</div>

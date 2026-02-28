@@ -1,0 +1,51 @@
+.project-card {
+  @apply scale-95 opacity-70 transition-all duration-500 ease-in-out relative;
+  aspect-ratio: 9 / 16;
+
+  video {
+    filter: grayscale(100%) brightness(0.6);
+    transition: filter 0.6s ease;
+  }
+
+  .overlay-layer {
+    @apply opacity-100 bg-black/40 absolute inset-0 transition-opacity duration-500;
+  }
+
+  // UI Elements hidden by default
+  .volume-btn,
+  .progress-container {
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+  }
+
+  /* Hover & Active States */
+  &:hover,
+  &.is-active {
+    @apply scale-100 opacity-100;
+
+    video {
+      filter: grayscale(0%) brightness(1.2);
+    }
+
+    .overlay-layer {
+      @apply opacity-0;
+    }
+
+    .volume-btn,
+    .progress-container {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .relative {
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+// Ensure the progress bar updates smoothly
+.progress-container .bg-white {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}

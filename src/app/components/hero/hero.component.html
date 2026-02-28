@@ -1,0 +1,40 @@
+<section
+  id="top"
+  class="relative h-screen flex items-center justify-center text-center overflow-hidden"
+>
+  <div
+    class="relative z-20 px-6 reveal-on-scroll"
+    [style.transform]="transformStyle()"
+  >
+    <h1
+      class="text-2xl md:text-4xl lg:text-5xl font-black uppercase text-dark-text dark:text-light-text tracking-tighter leading-tight"
+      [style.text-shadow]="
+        isDarkMode() ? '0 0 20px rgba(255,255,255,0.1)' : 'none'
+      "
+    >
+      <span class="reveal-3d">Describe Your Vision</span>
+      <span
+        class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500 dark:from-accent dark:to-pink-500 reveal-3d"
+        [style.transition-delay]="'100ms'"
+      >
+        — I’ll Bring It to Life.
+      </span>
+    </h1>
+
+    <p
+      class="mt-6 text-2xl md:text-3xl font-bold text-dark-text dark:text-light-text tracking-wide reveal-3d"
+      [style.transition-delay]="'200ms'"
+    >
+      Sravan Kumar
+    </p>
+    <p
+      class="mt-4 max-w-3xl mx-auto text-base md:text-lg text-medium-text dark:text-dim-text reveal-3d"
+      [style.transition-delay]="'300ms'"
+    >
+      I help brands and creators turn raw ideas into high-performing visual
+      stories. From cinematic YouTube documentaries to viral social media
+      shorts, I combine technical precision with creative motion design to make
+      your content stand out.
+    </p>
+  </div>
+</section>

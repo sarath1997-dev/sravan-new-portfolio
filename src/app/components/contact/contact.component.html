@@ -1,0 +1,86 @@
+<section id="contact" class="py-20 md:py-32 reveal-on-scroll">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">Let's Collaborate</h2>
+      <p class="max-w-2xl mx-auto text-medium-text dark:text-dim-text">
+        Have a project in mind? Let's connect and create something amazing
+        together.
+        <br />
+        <a class="text-accent hover:underline mt-2 inline-block font-semibold"
+          >myselfsravan21&#64;gmail.com</a
+        >
+      </p>
+    </div>
+
+    <form [formGroup]="contactForm" class="max-w-xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <label
+            for="name"
+            class="block mb-2 text-sm font-semibold text-medium-text dark:text-dim-text"
+            >Name</label
+          >
+          <input
+            type="text"
+            id="name"
+            formControlName="name"
+            placeholder="Your Name"
+            class="w-full p-3 rounded-md bg-light-surface dark:bg-glass-surface border border-light-border dark:border-glass-border focus:border-accent focus:ring-2 focus:ring-accent/50 outline-none transition-colors"
+          />
+        </div>
+        <div>
+          <label
+            for="email"
+            class="block mb-2 text-sm font-semibold text-medium-text dark:text-dim-text"
+            >Email</label
+          >
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            placeholder="Your Email"
+            class="w-full p-3 rounded-md bg-light-surface dark:bg-glass-surface border border-light-border dark:border-glass-border focus:border-accent focus:ring-2 focus:ring-accent/50 outline-none transition-colors"
+          />
+        </div>
+      </div>
+      <div class="mb-6">
+        <label
+          for="location"
+          class="block mb-2 text-sm font-semibold text-medium-text dark:text-dim-text"
+          >Location (Optional)</label
+        >
+        <input
+          type="text"
+          id="location"
+          formControlName="location"
+          placeholder="e.g. London, UK"
+          class="w-full p-3 rounded-md bg-light-surface dark:bg-glass-surface border border-light-border dark:border-glass-border focus:border-accent focus:ring-2 focus:ring-accent/50 outline-none transition-colors"
+        />
+      </div>
+      <div class="mb-6">
+        <label
+          for="message"
+          class="block mb-2 text-sm font-semibold text-medium-text dark:text-dim-text"
+          >Message</label
+        >
+        <textarea
+          id="message"
+          formControlName="message"
+          rows="4"
+          placeholder="Tell me about your project..."
+          class="w-full p-3 rounded-md bg-light-surface dark:bg-glass-surface border border-light-border dark:border-glass-border focus:border-accent focus:ring-2 focus:ring-accent/50 outline-none transition-colors"
+        ></textarea>
+      </div>
+      <div class="text-center">
+        <button
+          type="submit"
+          (click)="onSubmit()"
+          class="px-8 py-3 text-lg font-bold text-white bg-accent rounded-lg border border-accent/50 shadow-md dark:shadow-glow transition-all duration-300 hover:-translate-y-1 dark:hover:shadow-glow-lg active:translate-y-0 active:scale-95 disabled:opacity-50 disabled:shadow-none"
+          [disabled]="contactForm.invalid && isSubmitted"
+        >
+          <span>Send Message</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
